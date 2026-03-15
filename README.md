@@ -28,10 +28,15 @@ Add to `~/.openclaw/openclaw.json`:
       "webhookPath": "/twilio-sms/webhook",
       "webhookUrl": "https://your-domain.com/twilio-sms/webhook",
       "dmPolicy": "allowlist",
-      "allowFrom": ["+1XXXXXXXXXX"]
+      "allowFrom": ["+1XXXXXXXXXX"],
+      "pinAuth": true,
+      "pin": "1234"
     }
   }
 }
+```
+
+With `pinAuth` enabled, new numbers must send the correct PIN before they can interact with the agent. This adds a layer of protection on top of the allowlist.
 ```
 
 Then set your Twilio phone number's messaging webhook to `https://your-domain.com/twilio-sms/webhook` (HTTP POST).
